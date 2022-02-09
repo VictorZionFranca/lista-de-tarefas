@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Tarefas</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+        }
+        body{
+            min-height: 100vh;
+            font-family: 'Times New Roman', Times, serif;
+            border: 10px solid blue;
+            display: flex;
+            flex-direction: column;
+            background-color: blue;
+            
+        }
+        
+        header{
+            border: 5px solid blue;
+            color: white;
+            text-transform: uppercase;
+            font-size: 25px;
+            text-align: center;
+            padding: 15px;
+            background-color: rgb(78, 78, 228);
+            border-radius: 20px;
+        }
+        
+         main{
+            flex: auto;
+            background-color: rgb(78, 78, 228);
+            padding: 20px;
+            border-radius: 20px;
+        }
+        main ul {
+            padding: 0;
+            list-style: none;
+            
+        }
+        main li{
+            border-bottom: 1px solid white;
+            font-size: 20px;
+            color: white;
+        }
+        footer{
+            display: flex;
+            border: 10px solid blue;
+            
+        }
+        footer input {
+            flex:auto;
+            padding: 4px;
+            
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tarefas</h1>
+    </header>
+    <main>
+        <ul></ul>
+    </main>
+   <footer>
+    <input type="text">
+    <button onclick="add()">adicionar</button>
+   </footer>
+    <script>
+        
+        // Estado de aplicação
+        const tarefas = ['Estudar HTML', 'Estudar CSS', 'Estudar JS']
+
+        // Alteradores de estado da aplicação 
+        function add() {
+            const input = document.querySelector("input")
+            const tarefa = input.value
+            tarefas.push(tarefa)
+            input.value = ""
+            render()
+        }
+
+        // Mostrar estado na tela
+        function render() {
+            const ul = document.querySelector("ul")
+            ul.innerHTML = null
+        
+        tarefas.forEach(function (tarefa) {
+            const li = document.createElement("li")
+            li.innerText = tarefa
+            ul.appendChild(li)
+        })
+    }
+        // Iniciar
+        render()
+
+    </script>
+</body>
+</html>
